@@ -1,0 +1,405 @@
+:root {
+    --bg: #0f1724;
+    --card: #0b1220;
+    --accent: #2563eb;
+    --accent-2: #7c3aed;
+    --muted: #9aa6c0;
+    --text: #e6eef8;
+    --glass: rgba(255, 255, 255, 0.03);
+    --radius: 10px;
+    --container: 1100px;
+    --nav-height: 66px;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0
+}
+
+body {
+    background: linear-gradient(180deg, rgba(37, 99, 235, 0.03), rgba(37, 99, 235, 0.01)), var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.4;
+    padding-bottom: 40;
+
+    .nav {
+        position: sticky;
+        top: 0;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 10px 20px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        z-index: 50;
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #04132a;
+        box-shadow: 0 8px 22px rgba(37, 99, 235, 0.12);
+    }
+
+    .brand-text {
+        line-height: 1
+    }
+
+    .brand-title {
+        font-weight: 700
+    }
+
+    .brand-sub {
+        font-size: 0.78rem;
+        color: var(--muted);
+        margin-top: 3px
+    }
+
+    .nav-links {
+        margin-left: 18px;
+        display: flex;
+        gap: 8px;
+        align-items: center
+    }
+
+    .nav-link {
+        color: var(--muted);
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-weight: 700;
+    }
+
+    .nav-link:hover {
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.02)
+    }
+
+    .nav-link.active {
+        color: #04132a;
+        background: var(--accent);
+        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.16)
+    }
+
+    /* Layout */
+    .container {
+        max-width: var(--container);
+        margin: 26px auto;
+        padding: 20px
+    }
+
+    .hero {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        padding: 22px;
+        border-radius: 12px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+        border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .hero-left {
+        flex: 1
+    }
+
+    .hero-right {
+        width: 220px;
+        min-width: 160px;
+        text-align: center;
+        padding: 14px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.02)
+    }
+
+    h1 {
+        margin: 0 0 8px 0;
+        font-size: 1.6rem
+    }
+
+    .lead {
+        margin: 6px 0;
+        color: var(--muted);
+        font-size: 1rem
+    }
+
+    .muted {
+        color: var(--muted)
+    }
+
+    .actions {
+        margin-top: 12px;
+        display: flex;
+        gap: 10px;
+        align-items: center
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 14px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 700;
+        cursor: pointer;
+        border: 0;
+    }
+
+    .btn.primary {
+        background: var(--accent);
+        color: #04132a
+    }
+
+    .btn.outline {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        color: var(--muted)
+    }
+
+    .nav-structure {
+        margin-top: 14px;
+        color: var(--muted);
+        font-weight: 700
+    }
+
+    .nav-structure .sep {
+        margin: 0 8px;
+        opacity: 0.5
+    }
+
+    /* Cards / Features */
+    .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
+        margin-top: 16px
+    }
+
+    .card {
+        padding: 14px;
+        border-radius: 10px;
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.02)
+    }
+
+    .card h3 {
+        margin: 0 0 6px 0
+    }
+
+    /* Form card */
+    .form-card {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 18px;
+        border-radius: 10px;
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.03)
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 8px
+    }
+
+    .form-row {
+        display: flex;
+        flex-direction: column;
+        gap: 6px
+    }
+
+    .form-row label {
+        font-weight: 700;
+        font-size: 0.9rem
+    }
+
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        background: transparent;
+        color: var(--text);
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 8px;
+        align-items: center
+    }
+
+    /* Table */
+    .table-card {
+        padding: 14px;
+        border-radius: 10px;
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.03)
+    }
+
+    .table-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px
+    }
+
+    .table-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: auto;
+        display: block;
+    }
+
+    .table thead {
+        background: rgba(255, 255, 255, 0.02);
+        position: sticky;
+        top: 0
+    }
+
+    .table th,
+    .table td {
+        padding: 10px 12px;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+        font-size: 0.95rem;
+    }
+
+    .table tbody tr:hover {
+        background: rgba(255, 255, 255, 0.01)
+    }
+
+    /* Action buttons in table */
+    .table .actions {
+        display: flex;
+        gap: 6px;
+    }
+
+    .action-btn {
+        padding: 6px 8px;
+        border-radius: 6px;
+        border: 0;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.85rem;
+    }
+
+    .action-btn.details {
+        background: #06b6d4;
+        color: #042024
+    }
+
+    .action-btn.edit {
+        background: #f59e0b;
+        color: #2a1800
+    }
+
+    .action-btn.delete {
+        background: #ef4444;
+        color: #380606
+    }
+
+    /* Modal */
+    .modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(2, 6, 23, 0.6);
+        z-index: 120
+    }
+
+    .modal[aria-hidden="false"] {
+        display: flex
+    }
+
+    .modal-content {
+        background: var(--card);
+        padding: 18px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 520px;
+        position: relative;
+        color: var(--text);
+        border: 1px solid rgba(255, 255, 255, 0.03)
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: transparent;
+        border: 0;
+        font-size: 20px;
+        cursor: pointer;
+        color: var(--muted)
+    }
+
+    /* Footer */
+    .footer {
+        max-width: var(--container);
+        margin: 18px auto;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.9rem
+    }
+
+    /* Small helpers */
+    .sr-only {
+        position: absolute;
+        left: -9999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden
+    }
+
+    /* Responsive */
+    @media (max-width:800px) {
+        .hero {
+            flex-direction: column
+        }
+
+        .hero-right {
+            width: 100%
+        }
+
+        .table {
+            display: block;
+            overflow: auto
+        }
+
+        .table thead {
+            position: static
+        }
+    }

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>View All Contacts - Employee Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a class="brand" href="index.html">
+            <div class="logo">EMS</div>
+            <div class="brand-text">
+                <div class="brand-title">Employee Management System</div>
+                <div class="brand-sub">Manage employees & contacts</div>
+            </div>
+        </a>
+
+        <div class="nav-links" role="menubar">
+            <a href="index.html" class="nav-link" role="menuitem">Home</a>
+            <a href="new-contact.html" class="nav-link" role="menuitem">New Contact</a>
+            <a href="view-contacts.html" class="nav-link active" role="menuitem">View All Contacts</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="table-card">
+            <div class="table-head">
+                <h2>All Contacts</h2>
+                <div class="table-actions">
+                    <input id="search" type="search" placeholder="Search by name, email or phone" />
+                    <a class="btn outline" href="new-contact.html">+ Add Contact</a>
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table id="contacts-table" class="table" aria-describedby="table-desc">
+                    <caption id="table-desc" class="sr-only">List of employee contacts</caption>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Department</th>
+                            <th>Position</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div id="empty-state" class="muted" style="display:none;margin-top:12px">
+                    No contacts yet. Use "Add Contact" to create new entries.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        © <span id="year"></span> Employee Management System
+    </footer>
+
+
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content" role="document">
+            <button class="modal-close" id="modal-close" aria-label="Close details">&times;</button>
+            <h3 id="modal-title">Contact Details</h3>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+
+        renderContactsTable();
+
+
+        const search = document.getElementById('search');
+        search.addEventListener('input', function () {
+            renderContactsTable(this.value.trim());
+        });
+
+
+        document.getElementById('modal-close').addEventListener('click', closeModal);
+        document.getElementById('modal').addEventListener('click', function (e) {
+            if (e.target === this) closeModal();
+        });
+
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+</body>
+
+</html>
